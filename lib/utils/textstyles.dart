@@ -38,37 +38,41 @@ const TextStyle Heading_5 = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.bold,
   fontFamily: 'SFPro',
-  color: myParagraph1Color,
+  color: myDarkGreyColor,
 );
 
 const TextStyle Heading_6 = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.bold,
   fontFamily: 'SFPro',
+  color: myHeading3Color,
 );
 
 const TextStyle Heading_7 = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.bold,
   fontFamily: 'SFPro',
+  color: myLightPurpleColor,
 );
 const TextStyle Paragraph_1 = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.normal,
   fontFamily: 'SFPro',
-  color: myParagraph1Color,
+  color: myDarkGreyColor,
 );
 
 const TextStyle Paragraph_2 = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.normal,
   fontFamily: 'SFPro',
+  color: myLightGreyColor,
 );
 
 const TextStyle Paragraph_3 = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.normal,
   fontFamily: 'SFPro',
+  color: myHeading3Color,
 );
 
 const TextStyle Paragraph_4 = TextStyle(

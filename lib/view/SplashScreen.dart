@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/view/OnboardingScreen1.dart';
+import 'package:service_app/view/Onboarding/OnboardingScreen1.dart';
 
 import '../utils/colors.dart';
 

@@ -10,8 +10,8 @@ class CustomButton1 extends StatelessWidget {
   const CustomButton1({
     required this.onPressed,
     required this.text,
-    this.textColor = Colors.white, // Default text color is white
-    this.buttonColor = myPrimaryColor, // Default button color is blue
+    this.textColor = Colors.white,
+    this.buttonColor = myPrimaryColor,
   });
 
   @override
@@ -25,6 +25,38 @@ class CustomButton1 extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: buttonColor,
         minimumSize: Size(145, 50),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14.0),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton2 extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String text;
+  final Color textColor;
+  final Color buttonColor;
+
+  const CustomButton2({
+    required this.onPressed,
+    required this.text,
+    this.textColor = Colors.white,
+    this.buttonColor = myPrimaryColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: TextStyle(color: textColor),
+      ),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: buttonColor,
+        minimumSize: Size(310, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14.0),
         ),
