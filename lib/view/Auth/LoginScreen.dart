@@ -3,11 +3,13 @@ import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/CustomTextFields.dart';
 import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/view/Auth/ResetPassword1.dart';
 import 'package:service_app/view/Auth/SignUpScreen.dart';
-import 'package:service_app/view/Auth/Verify.dart';
+import 'package:service_app/viewmodel/LoginViewModel.dart';
 
 class LoginScreen extends StatelessWidget {
+  final LoginViewModel viewModel = LoginViewModel();
+
+  LoginScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,14 +126,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget buildForgotPasswordText(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ResetPassword1(),
-          ),
-        );
-      },
+      onTap: () =>viewModel.onResetPasswordPressed(context),
       child: const Text(
         'Forgot your password?',
         style: Heading_7,
@@ -141,14 +136,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget buildLoginButton(BuildContext context) {
     return CustomButton2(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => VerifyScreen(),
-          ),
-        );
-      },
+      onPressed: () =>viewModel.onLoginPressed(context),
       text: 'Login',
     );
   }

@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/view/Auth/LoginScreen.dart';
-import 'package:service_app/view/Auth/SignUpScreen.dart';
+import 'package:service_app/viewmodel/OnBoardingViewModel.dart';
 import '../../../utils/custom widgets/PageIndicator.dart';
 
-class Onboardingscreen3 extends StatefulWidget {
+class OnBoardingScreen3 extends StatefulWidget {
+  const OnBoardingScreen3({super.key});
+
   @override
-  _Onboardingscreen3State createState() => _Onboardingscreen3State();
+  _OnBoardingScreen3State createState() => _OnBoardingScreen3State();
 }
 
-class _Onboardingscreen3State extends State<Onboardingscreen3> {
+class _OnBoardingScreen3State extends State<OnBoardingScreen3> {
+  final OnBoardingViewModel viewModel = OnBoardingViewModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,28 +92,14 @@ class _Onboardingscreen3State extends State<Onboardingscreen3> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomButton1(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginScreen(),
-                ),
-              );
-            },
+            onPressed: () => viewModel.onLoginPressed(context),
             text: 'Login',
             textColor: myDarkGreyColor,
             buttonColor: mybackbuttonColor,
           ),
           SizedBox(width: MediaQuery.sizeOf(context).width * 0.03),
           CustomButton1(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SignUpScreen(),
-                ),
-              );
-            },
+            onPressed: () => viewModel.onSignUpPressed(context),
             text: 'Signup',
           ),
         ],

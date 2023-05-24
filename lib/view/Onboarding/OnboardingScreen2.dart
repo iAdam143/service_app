@@ -3,14 +3,18 @@ import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
 import 'package:service_app/utils/custom%20widgets/PageIndicator.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/view/Onboarding/OnboardingScreen3.dart';
+import 'package:service_app/viewmodel/OnBoardingViewModel.dart';
 
-class Onboardingscreen2 extends StatefulWidget {
+class OnBoardingScreen2 extends StatefulWidget {
+  const OnBoardingScreen2({super.key});
+
   @override
-  _Onboardingscreen2State createState() => _Onboardingscreen2State();
+  _OnBoardingScreen2State createState() => _OnBoardingScreen2State();
 }
 
-class _Onboardingscreen2State extends State<Onboardingscreen2> {
+class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
+  final OnBoardingViewModel viewModel = OnBoardingViewModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,23 +87,14 @@ class _Onboardingscreen2State extends State<Onboardingscreen2> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomButton1(
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            onPressed: () => viewModel.onBackPressed(context),
             text: 'Back',
             textColor: myDarkGreyColor,
             buttonColor: mybackbuttonColor,
           ),
           SizedBox(width: MediaQuery.sizeOf(context).width * 0.03),
           CustomButton1(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Onboardingscreen3(),
-                ),
-              );
-            },
+            onPressed: () => viewModel.onNextPressed2(context),
             text: 'Next',
           ),
         ],

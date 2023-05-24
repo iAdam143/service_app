@@ -10,3 +10,6 @@ const Color myPinkColor = Color(0xFFF7658B);
 const Color mygreyColor = Color(0xFFEAEAFF);
 const Color myLightPurpleColor = Color(0xFF6E6BE8);
 const Color myLightGreyColor = Color(0xFFB8B8D2);
+const Color myLightPColor = Color(0xFF38385e);
+const Color myLightTealColor = Color(0xFFECFCFF);
+const Color myLPurplelColor = Color(0xFFF4F3FD);

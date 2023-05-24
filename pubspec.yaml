@@ -68,6 +68,19 @@ flutter:
      - assets/images/logo_icon.png
      - assets/images/phone.png
      - assets/images/Frame.png
+     - assets/images/Hamburger.png
+     - assets/images/home.png
+     - assets/images/clean.png
+     - assets/images/repair.png
+     - assets/images/pest.png
+     - assets/images/laundry.png
+     - assets/images/food.png
+     - assets/images/Rectangle 15.png
+     - assets/images/Rectangle 16.png
+     - assets/images/Rectangle 16 (1).png
+     - assets/images/offerimage.png
+     - assets/images/Rectangle 17 (1).png
+     - assets/images/Rectangle 17.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

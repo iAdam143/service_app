@@ -3,9 +3,13 @@ import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/CustomTextFields.dart';
 import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/view/Auth/Verify.dart';
+import 'package:service_app/viewmodel/SignUpViewModel.dart';
 
 class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
+
+  final SignUpViewModel viewModel = SignUpViewModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,16 +119,8 @@ class SignUpScreen extends StatelessWidget {
 
   Widget buildSignupButton(BuildContext context) {
     return CustomButton2(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => VerifyScreen(),
-          ),
-        );
-      },
+      onPressed: () => viewModel.onSignUpPressed(context),
       text: 'Sign up',
     );
   }
 }
-

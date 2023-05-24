@@ -3,9 +3,14 @@ import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/CustomTextFields.dart';
 import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/view/Auth/ResetPassword2.dart';
+import 'package:service_app/viewmodel/VerificationViewModel.dart';
 
 class VerifyScreen extends StatelessWidget {
+  final bool isResetPassword;
+  final VerificationViewModel viewModel = VerificationViewModel();
+
+  VerifyScreen({super.key, required this.isResetPassword});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,9 +99,12 @@ class VerifyScreen extends StatelessWidget {
   Widget buildResendCodeRow() {
     return Row(
       children: [
-        const Text(
-          'Resend your code',
-          style: Heading_7,
+        GestureDetector(
+          //onTap: ()=>,
+          child: const Text(
+            'Resend your code',
+            style: Heading_7,
+          ),
         ),
         Spacer(),
         Text(
@@ -109,16 +117,8 @@ class VerifyScreen extends StatelessWidget {
 
   Widget buildConfirmButton(BuildContext context) {
     return CustomButton2(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ResetPassword2(),
-          ),
-        );
-      },
+      onPressed: () => viewModel.onConfirmPressed(context, isResetPassword),
       text: 'Confirm',
     );
   }
 }
-

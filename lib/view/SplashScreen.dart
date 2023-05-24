@@ -6,6 +6,8 @@ import 'package:service_app/view/Onboarding/OnboardingScreen1.dart';
 import '../utils/colors.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -16,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 1), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => Onboardingscreen1()),
+        MaterialPageRoute(builder: (_) => const OnBoardingScreen()),
       );
     });
   }
