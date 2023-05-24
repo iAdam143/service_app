@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/AppBarDelegate.dart';
-import 'package:service_app/utils/custom%20widgets/CustomCard.dart';
 import 'package:service_app/utils/custom%20widgets/CustomNavigationBar.dart';
 import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
-import 'package:service_app/utils/custom%20widgets/HomeGrid.dart';
 import 'package:service_app/utils/custom%20widgets/TopPickSection.dart';
 import 'package:service_app/utils/textstyles.dart';
-
-import '../utils/custom widgets/OfferSection.dart';
+import 'package:service_app/viewmodel/HomeViewModel.dart';
 
 class HomeScreen extends StatelessWidget {
+  final HomeViewModel viewModel = HomeViewModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +26,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BuildGrid(context),
+                  viewModel.buildGrid(context),
                   SizedBox(height: 16.0),
                   Text(
                     'Top Pick',
@@ -36,15 +35,16 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: 16.0),
                   const TopPickRow(),
                   SizedBox(height: 16.0),
-                  OffersSection(),
+                  viewModel.buildOffersSection(context),
                   SizedBox(height: 16.0),
                   Text(
                     'Explore',
                     style: Heading_4.copyWith(color: myHeading3Color),
                   ),
-                  BuildExploreSection(context),
+                  viewModel.buildExploreSection(context),
                   SizedBox(height: 16.0),
-                  CustomButton4(onPressed: ()=>HomeScreen(), text: 'Need more service?')
+                  CustomButton4(
+                      onPressed: () => HomeScreen(), text: 'Need more service?')
                 ],
               ),
             ),
@@ -52,82 +52,6 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
-    );
-  }
-
-  Widget BuildGrid(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        double screenWidth = constraints.maxWidth;
-        int crossAxisCount = screenWidth < 700 ? 3 : 6;
-
-        return GridView.count(
-          shrinkWrap: true,
-          crossAxisCount: crossAxisCount,
-          mainAxisSpacing: 16.0,
-          crossAxisSpacing: 16.0,
-          children: const [
-            GridItem(
-              image: 'assets/images/home.png',
-              text: 'All',
-            ),
-            GridItem(
-              image: 'assets/images/clean.png',
-              text: 'Clean',
-            ),
-            GridItem(
-              image: 'assets/images/repair.png',
-              text: 'Repair',
-            ),
-            GridItem(
-              image: 'assets/images/pest.png',
-              text: 'Pest',
-            ),
-            GridItem(
-              image: 'assets/images/food.png',
-              text: 'Food',
-            ),
-            GridItem(
-              image: 'assets/images/laundry.png',
-              text: 'Laundry',
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  Widget BuildExploreSection(BuildContext context) {
-    return const SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(right: 16.0, top: 16.0),
-            child: CustomCard(
-              imagePath: 'assets/images/Rectangle 17.png',
-              text1: 'Bathroom',
-              text2: 'Cleaning',
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 16.0, top: 16.0),
-            child: CustomCard(
-              imagePath: 'assets/images/Rectangle 17 (1).png',
-              text1: 'Grocery',
-              text2: 'Shopping',
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 16.0, top: 16.0),
-            child: CustomCard(
-              imagePath: 'assets/images/image3.jpg',
-              text1: 'Item 3',
-              text2: 'Bathroom',
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
