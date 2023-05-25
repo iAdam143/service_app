@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.6
+  intl: ^0.18.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,7 +69,7 @@ flutter:
      - assets/images/logo_icon.png
      - assets/images/phone.png
      - assets/images/Frame.png
-     - assets/images/Hamburger.svg
+     - assets/images/Hamburger.png
      - assets/images/home2.svg
      - assets/images/clean.svg
      - assets/images/repair.svg
@@ -90,6 +91,12 @@ flutter:
      - assets/images/man-1.svg
      - assets/images/eye off.svg
      - assets/images/eye on.svg
+     - assets/images/location.svg
+     - assets/images/calendar.svg
+     - assets/images/time.svg
+     - assets/images/gift.svg
+     - assets/images/Avatar (1).png
+     - assets/images/Avatar.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

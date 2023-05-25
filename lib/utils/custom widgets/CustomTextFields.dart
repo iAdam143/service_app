@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/textstyles.dart';
+import 'package:intl/intl.dart';
 
 class IconTextField extends StatelessWidget {
   final String svgPath;
@@ -99,7 +100,7 @@ class _FourDigitTextFieldState extends State<FourDigitTextField> {
             maxLength: 1,
             keyboardType: TextInputType.number,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24),
+            style: const TextStyle(fontSize: 24),
             focusNode: focusNodes[index],
             onChanged: (value) {
               digitList[index] = value;
@@ -117,6 +118,132 @@ class _FourDigitTextFieldState extends State<FourDigitTextField> {
           ),
         );
       }),
+    );
+  }
+}
+
+class DatePickerTextField extends StatefulWidget {
+  @override
+  _DatePickerTextFieldState createState() => _DatePickerTextFieldState();
+}
+
+class _DatePickerTextFieldState extends State<DatePickerTextField> {
+  late TextEditingController _dateController;
+  late DateTime _selectedDate;
+
+  @override
+  void initState() {
+    super.initState();
+    _dateController = TextEditingController();
+    _selectedDate = DateTime.now();
+  }
+
+  @override
+  void dispose() {
+    _dateController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2100),
+    );
+
+    if (pickedDate != null && pickedDate != _selectedDate) {
+      setState(() {
+        _selectedDate = pickedDate;
+        _dateController.text =
+            DateFormat('EEEE - dd MMM yyyy').format(_selectedDate);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: _dateController,
+      onTap: () {
+        _selectDate(context);
+      },
+      decoration: InputDecoration(
+        hintText: 'Select date',
+        prefixIcon: Transform.scale(
+          scale: 0.5,
+          child: SvgPicture.asset('assets/images/calendar.svg'),
+        ),
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: mygreyColor,
+            width: 1.0,
+          ),
+        ),
+      ),
+      readOnly: true,
+    );
+  }
+}
+
+class TimePickerTextField extends StatefulWidget {
+  @override
+  _TimePickerTextFieldState createState() => _TimePickerTextFieldState();
+}
+
+class _TimePickerTextFieldState extends State<TimePickerTextField> {
+  late TextEditingController _timeController;
+  late TimeOfDay _selectedTime;
+
+  @override
+  void initState() {
+    super.initState();
+    _timeController = TextEditingController();
+    _selectedTime = TimeOfDay.now();
+  }
+
+  @override
+  void dispose() {
+    _timeController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: _selectedTime,
+    );
+
+    if (pickedTime != null && pickedTime != _selectedTime) {
+      setState(() {
+        _selectedTime = pickedTime;
+        _timeController.text = DateFormat('hh:mm a')
+            .format(DateTime(1, 1, 1, pickedTime.hour, pickedTime.minute));
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: _timeController,
+      onTap: () {
+        _selectTime(context);
+      },
+      decoration: InputDecoration(
+        hintText: 'Select time',
+        prefixIcon: Transform.scale(
+          scale: 0.5,
+          child: SvgPicture.asset('assets/images/time.svg'),
+        ),
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: mygreyColor,
+            width: 1.0,
+          ),
+        ),
+      ),
+      readOnly: true,
     );
   }
 }

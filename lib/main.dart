@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_app/view/HomeScreen.dart';
 import 'package:service_app/view/SplashScreen.dart';
 
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       //home: SplashScreen(),
       initialRoute: '/',
       routes: {
-        '/': (context) => SplashScreen(),
+        '/': (context) => HomeScreen(),
         //'/category': (context) => CategoryScreen(),
         //'/fruits': (context) => FruitsScreen(),
         //'/vegetables': (context) => VegetablesScreen(),

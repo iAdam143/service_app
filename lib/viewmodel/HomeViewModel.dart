@@ -78,7 +78,7 @@ class HomeViewModel {
             child: CustomCard(
               imagePath: 'assets/images/Rectangle 17.png',
               text1: 'Bathroom',
-              text2: 'Cleaning',
+              text2: 'Cleaning',showCheckbox: false,
             ),
           ),
           Padding(
@@ -86,7 +86,7 @@ class HomeViewModel {
             child: CustomCard(
               imagePath: 'assets/images/Rectangle 17 (1).png',
               text1: 'Grocery',
-              text2: 'Shopping',
+              text2: 'Shopping',showCheckbox: false,
             ),
           ),
           Padding(
@@ -94,7 +94,7 @@ class HomeViewModel {
             child: CustomCard(
               imagePath: 'assets/images/image3.jpg',
               text1: 'Item 3',
-              text2: 'Bathroom',
+              text2: 'Bathroom',showCheckbox: false,
             ),
           ),
         ],

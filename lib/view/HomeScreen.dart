@@ -27,22 +27,22 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   viewModel.buildGrid(context),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Text(
                     'Top Pick',
                     style: Heading_4.copyWith(color: myHeading3Color),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   const TopPickRow(),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   viewModel.buildOffersSection(context),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Text(
                     'Explore',
                     style: Heading_4.copyWith(color: myHeading3Color),
                   ),
                   viewModel.buildExploreSection(context),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   CustomButton4(
                       onPressed: () => HomeScreen(), text: 'Need more service?')
                 ],
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: MyBottomNavigationBar(),
+      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }
