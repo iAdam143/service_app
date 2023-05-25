@@ -18,7 +18,7 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
               children: [
                 Column(
@@ -34,17 +34,18 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.asset(
                   'assets/images/Hamburger.png',
-                  fit: BoxFit.cover,
+                  fit: BoxFit.cover,color: const Color.fromRGBO(255, 255, 255, 0.7), // Adjust the opacity value (0.0 - 1.0)
+                    colorBlendMode: BlendMode.modulate,
                 ),
               ],
             ),
           ),
           if (showSearchBar)
             Padding(
-              padding: EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(30.0),
               child: TextFormField(
                 decoration: InputDecoration(
                   hintText: 'Find it here',
@@ -55,7 +56,7 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
                     borderRadius: BorderRadius.circular(15.0),
                     borderSide: BorderSide.none,
                   ),
-                  prefixIcon: Icon(Icons.search), // Add the search icon here
+                  prefixIcon: const Icon(Icons.search), // Add the search icon here
                 ),
               ),
             ),

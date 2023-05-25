@@ -39,27 +39,27 @@ class HomeViewModel {
           crossAxisSpacing: 16.0,
           children: const [
             GridItem(
-              image: 'assets/images/home.png',
+              image: "assets/images/home2.svg",
               text: 'All',
             ),
             GridItem(
-              image: 'assets/images/clean.png',
+              image: 'assets/images/clean.svg',
               text: 'Clean',
             ),
             GridItem(
-              image: 'assets/images/repair.png',
+              image: 'assets/images/repair.svg',
               text: 'Repair',
             ),
             GridItem(
-              image: 'assets/images/pest.png',
+              image: 'assets/images/pest.svg',
               text: 'Pest',
             ),
             GridItem(
-              image: 'assets/images/food.png',
+              image: 'assets/images/food.svg',
               text: 'Food',
             ),
             GridItem(
-              image: 'assets/images/laundry.png',
+              image: 'assets/images/laundry.svg',
               text: 'Laundry',
             ),
           ],

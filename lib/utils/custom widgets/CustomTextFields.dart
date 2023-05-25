@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/textstyles.dart';
 
 class IconTextField extends StatelessWidget {
-  final IconData icon;
+  final String svgPath;
   final String hintText;
 
-  IconTextField({required this.icon, required this.hintText});
+  const IconTextField(
+      {super.key, required this.svgPath, required this.hintText});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        prefixIcon: Icon(icon),
+        prefixIcon: Transform.scale(
+          scale: 0.5,
+          child: SvgPicture.asset(
+            svgPath,
+          ),
+        ),
         hintText: hintText,
         hintStyle: Paragraph_2,
-        enabledBorder: UnderlineInputBorder(
+        enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: mygreyColor,
             width: 1.0,
@@ -27,6 +34,8 @@ class IconTextField extends StatelessWidget {
 }
 
 class PasswordTextField extends StatefulWidget {
+  const PasswordTextField({super.key});
+
   @override
   _PasswordTextFieldState createState() => _PasswordTextFieldState();
 }
@@ -39,13 +48,16 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
     return TextField(
       obscureText: _obscureText,
       decoration: InputDecoration(
-        enabledBorder: UnderlineInputBorder(
+        enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: mygreyColor,
             width: 1.0,
           ),
         ),
-        prefixIcon: Icon(Icons.lock),
+        prefixIcon: Transform.scale(
+          scale: 0.5,
+          child: SvgPicture.asset('assets/images/man-1.svg'),
+        ),
         hintText: 'your password here',
         hintStyle: Paragraph_2,
         suffixIcon: IconButton(
@@ -65,6 +77,8 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
 }
 
 class FourDigitTextField extends StatefulWidget {
+  const FourDigitTextField({super.key});
+
   @override
   _FourDigitTextFieldState createState() => _FourDigitTextFieldState();
 }
@@ -94,7 +108,7 @@ class _FourDigitTextFieldState extends State<FourDigitTextField> {
               }
               setState(() {});
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               counterText: '',
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: mygreyColor),

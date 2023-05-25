@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:service_app/utils/textstyles.dart';
 
 import '../colors.dart';
@@ -25,7 +26,7 @@ class GridItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
+          SvgPicture.asset(
             image,
             width: 25,
             height: 20,

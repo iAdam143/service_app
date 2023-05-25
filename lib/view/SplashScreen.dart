@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:service_app/utils/textstyles.dart';
 import 'package:service_app/view/Onboarding/OnboardingScreen1.dart';
 
@@ -36,12 +37,12 @@ class _SplashScreenState extends State<SplashScreen> {
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  Image.asset(
-                    'assets/images/Rectangle.png',
+                  SvgPicture.asset(
+                    'assets/images/splashlogobackground.svg',
                     fit: BoxFit.cover,
                   ),
-                  Image.asset(
-                    'assets/images/Layer.png',
+                  SvgPicture.asset(
+                    'assets/images/splashlogo.svg',
                     fit: BoxFit.cover,
                   ),
                 ],

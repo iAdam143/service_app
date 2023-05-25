@@ -80,12 +80,12 @@ class SignUpScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Your name',
               style: Heading_6,
             ),
             IconTextField(
-              icon: Icons.person,
+              svgPath: 'assets/images/man.svg',
               hintText: 'your name here',
             ),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
@@ -94,7 +94,7 @@ class SignUpScreen extends StatelessWidget {
               style: Heading_6,
             ),
             IconTextField(
-              icon: Icons.person,
+              svgPath: 'assets/images/phone.svg',
               hintText: 'your phone number here',
             ),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),

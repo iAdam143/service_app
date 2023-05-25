@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import '../colors.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
+  const MyBottomNavigationBar({super.key});
+
   @override
   _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
 }
@@ -19,25 +24,25 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     return BottomNavigationBar(
       currentIndex: _currentIndex,
       onTap: _onTabTapped,
-      selectedItemColor: Colors.blue, // Custom selected label color
-      unselectedItemColor: Colors.grey, // Custom unselected label color
-      selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold), // Custom selected label style
-      unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal), // Custom unselected label style
-      items: const [
+      selectedItemColor: myPrimaryColor,
+      unselectedItemColor: myLightGreyColor,
+      selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+      unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal),
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: SvgPicture.asset('assets/images/Home.svg'),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.book),
+          icon: SvgPicture.asset('assets/images/booking.svg'),
           label: 'Booking',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.chat),
+          icon: SvgPicture.asset('assets/images/Chat.svg'),
           label: 'Chat',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.notifications),
+          icon: SvgPicture.asset('assets/images/noti.svg'),
           label: 'Notifications',
         ),
       ],

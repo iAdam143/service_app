@@ -105,7 +105,7 @@ class LoginScreen extends StatelessWidget {
               style: Heading_6,
             ),
             IconTextField(
-              icon: Icons.person,
+              svgPath: 'assets/images/phone.svg',
               hintText: 'your phone number here',
             ),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),

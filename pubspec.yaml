@@ -35,7 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-
+  flutter_svg: ^2.0.6
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -60,27 +60,36 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/images/Layer.png
-     - assets/images/Rectangle.png
+     - assets/images/splashlogobackground.svg
+     - assets/images/splashlogo.svg
      - assets/images/feature 1@2x 1.png
      - assets/images/feature 2@2x 1.png
      - assets/images/feature 3@2x 1.png
      - assets/images/logo_icon.png
      - assets/images/phone.png
      - assets/images/Frame.png
-     - assets/images/Hamburger.png
-     - assets/images/home.png
-     - assets/images/clean.png
-     - assets/images/repair.png
-     - assets/images/pest.png
-     - assets/images/laundry.png
-     - assets/images/food.png
+     - assets/images/Hamburger.svg
+     - assets/images/home2.svg
+     - assets/images/clean.svg
+     - assets/images/repair.svg
+     - assets/images/pest.svg
+     - assets/images/laundry.svg
+     - assets/images/food.svg
      - assets/images/Rectangle 15.png
      - assets/images/Rectangle 16.png
      - assets/images/Rectangle 16 (1).png
      - assets/images/offerimage.png
      - assets/images/Rectangle 17 (1).png
      - assets/images/Rectangle 17.png
+     - assets/images/Home.svg
+     - assets/images/booking.svg
+     - assets/images/Chat.svg
+     - assets/images/noti.svg
+     - assets/images/man.svg
+     - assets/images/phone.svg
+     - assets/images/man-1.svg
+     - assets/images/eye off.svg
+     - assets/images/eye on.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
