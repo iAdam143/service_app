@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/view/Auth/VerificationScreen.dart';
+import 'package:service_app/view/Auth/verification_screen.dart';
 
 class SignUpViewModel {
   void onSignUpPressed(BuildContext context) {

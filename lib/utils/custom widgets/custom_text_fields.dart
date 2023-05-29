@@ -22,7 +22,7 @@ class IconTextField extends StatelessWidget {
           ),
         ),
         hintText: hintText,
-        hintStyle: Paragraph_2,
+        hintStyle: paragraph_2,
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: mygreyColor,
@@ -60,7 +60,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           child: SvgPicture.asset('assets/images/man-1.svg'),
         ),
         hintText: 'your password here',
-        hintStyle: Paragraph_2,
+        hintStyle: paragraph_2,
         suffixIcon: IconButton(
           icon: Icon(
             _obscureText ? Icons.visibility : Icons.visibility_off,
@@ -93,7 +93,7 @@ class _FourDigitTextFieldState extends State<FourDigitTextField> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: List.generate(4, (index) {
-        return Container(
+        return SizedBox(
           width: 50,
           height: 60,
           child: TextField(
@@ -123,6 +123,11 @@ class _FourDigitTextFieldState extends State<FourDigitTextField> {
 }
 
 class DatePickerTextField extends StatefulWidget {
+  final Function(DateTime) onDateSelected; // Callback function
+
+  const DatePickerTextField({Key? key, required this.onDateSelected})
+      : super(key: key);
+
   @override
   _DatePickerTextFieldState createState() => _DatePickerTextFieldState();
 }
@@ -158,8 +163,11 @@ class _DatePickerTextFieldState extends State<DatePickerTextField> {
         _dateController.text =
             DateFormat('EEEE - dd MMM yyyy').format(_selectedDate);
       });
+
+      widget.onDateSelected(_selectedDate); // Invoke the callback function
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -187,6 +195,8 @@ class _DatePickerTextFieldState extends State<DatePickerTextField> {
 }
 
 class TimePickerTextField extends StatefulWidget {
+  const TimePickerTextField({super.key});
+
   @override
   _TimePickerTextFieldState createState() => _TimePickerTextFieldState();
 }
@@ -244,6 +254,76 @@ class _TimePickerTextFieldState extends State<TimePickerTextField> {
         ),
       ),
       readOnly: true,
+    );
+  }
+}
+
+class CustomTextField extends StatefulWidget {
+  const CustomTextField({super.key});
+
+  @override
+  _CustomTextFieldState createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  late TextEditingController _controller;
+  String _formattedText = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+    _controller.addListener(_formatInput);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _formatInput() {
+    final unformattedText = _controller.text.replaceAll(RegExp(r'[^0-9/]'), '');
+
+    if (unformattedText.length <= 4) {
+      final formattedText = StringBuffer();
+
+      if (unformattedText.length >= 2) {
+        formattedText.write(unformattedText.substring(0, 2));
+      } else {
+        formattedText.write(unformattedText);
+      }
+
+      if (unformattedText.length >= 4) {
+        formattedText.write('/${unformattedText.substring(2, 4)}');
+      }
+
+      setState(() {
+        _formattedText = formattedText.toString();
+      });
+    } else {
+      _controller.value = _controller.value.copyWith(
+        text: _formattedText,
+        selection: TextSelection.collapsed(offset: _formattedText.length),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: _controller,
+      keyboardType: TextInputType.number,
+      decoration: const InputDecoration(
+        hintText: 'MM/YY',
+        hintStyle: paragraph_2,
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: mygreyColor,
+            width: 1.0,
+          ),
+        ),
+      ),
     );
   }
 }

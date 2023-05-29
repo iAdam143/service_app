@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
-import 'package:service_app/utils/custom%20widgets/CustomTextFields.dart';
-import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
+import 'package:service_app/utils/custom%20widgets/custom_text_fields.dart';
+import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/viewmodel/VerificationViewModel.dart';
+import 'package:service_app/viewmodel/verification_viewmodel.dart';
 
 class VerifyScreen extends StatelessWidget {
   final bool isResetPassword;
@@ -31,7 +31,7 @@ class VerifyScreen extends StatelessWidget {
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
         const Text(
           'Verify',
-          style: Heading_3,
+          style: heading_3,
         ),
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
         buildDescriptionText(),
@@ -57,11 +57,11 @@ class VerifyScreen extends StatelessWidget {
       children: [
         Text(
           'Please enter the verification code sent to',
-          style: Paragraph_2.copyWith(color: myDarkGreyColor),
+          style: paragraph_2.copyWith(color: myDarkGreyColor),
         ),
         Text(
           'your phone number',
-          style: Paragraph_2.copyWith(color: myDarkGreyColor),
+          style: paragraph_2.copyWith(color: myDarkGreyColor),
         ),
       ],
     );
@@ -83,9 +83,9 @@ class VerifyScreen extends StatelessWidget {
           children: [
             const Text(
               'Your code',
-              style: Heading_6,
+              style: heading_6,
             ),
-            FourDigitTextField(),
+            const FourDigitTextField(),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
             buildResendCodeRow(),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
@@ -103,13 +103,13 @@ class VerifyScreen extends StatelessWidget {
           //onTap: ()=>,
           child: const Text(
             'Resend your code',
-            style: Heading_7,
+            style: heading_7,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Text(
           'Expired after 23s',
-          style: Paragraph_4.copyWith(color: myDarkGreyColor),
+          style: paragraph_4.copyWith(color: myDarkGreyColor),
         ),
       ],
     );

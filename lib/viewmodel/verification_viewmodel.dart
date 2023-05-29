@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/view/Auth/LoginScreen.dart';
-import 'package:service_app/view/Auth/ResetPassword2.dart';
+import 'package:service_app/view/Auth/login_screen.dart';
+import 'package:service_app/view/Auth/reset_password_2.dart';
 
 class VerificationViewModel {
   void onConfirmPressed(BuildContext context, bool isResetPassword) {

@@ -28,6 +28,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       unselectedItemColor: myLightGreyColor,
       selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
       unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal),
+      showUnselectedLabels: true,
       items: [
         BottomNavigationBarItem(
           icon: SvgPicture.asset('assets/images/Home.svg'),

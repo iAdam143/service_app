@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/view/Auth/LoginScreen.dart';
-import 'package:service_app/view/Auth/SignUpScreen.dart';
-import 'package:service_app/view/Onboarding/OnboardingScreen2.dart';
-import 'package:service_app/view/Onboarding/OnboardingScreen3.dart';
+import 'package:service_app/view/Auth/login_screen.dart';
+import 'package:service_app/view/Auth/signup_screen.dart';
+import 'package:service_app/view/Onboarding/onboarding_screen_2.dart';
+import 'package:service_app/view/Onboarding/onboarding_screen_3.dart';
 
 class OnBoardingViewModel {
   void onSkipPressed(BuildContext context) {
@@ -10,7 +10,7 @@ class OnBoardingViewModel {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => OnBoardingScreen3(),
+        builder: (context) => const OnBoardingScreen3(),
       ),
     );
   }
@@ -20,7 +20,7 @@ class OnBoardingViewModel {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => OnBoardingScreen2(),
+        builder: (context) => const OnBoardingScreen2(),
       ),
     );
   }
@@ -35,7 +35,7 @@ class OnBoardingViewModel {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => OnBoardingScreen3(),
+        builder: (context) => const OnBoardingScreen3(),
       ),
     );
   }

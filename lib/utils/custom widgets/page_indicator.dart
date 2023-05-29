@@ -6,7 +6,7 @@ class PageIndicator extends StatelessWidget {
   final Color activeColor;
   final Color inactiveColor;
 
-  const PageIndicator({
+  const PageIndicator({super.key,
     required this.currentPage,
     this.activeColor = myPinkColor,
     this.inactiveColor = mygreyColor,
@@ -33,7 +33,7 @@ class Indicator extends StatelessWidget {
   final Color activeColor;
   final Color inactiveColor;
 
-  const Indicator({
+  const Indicator({super.key,
     required this.isActive,
     required this.activeColor,
     required this.inactiveColor,

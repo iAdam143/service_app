@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
-import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
-import 'package:service_app/utils/custom%20widgets/PageIndicator.dart';
+import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
+import 'package:service_app/utils/custom%20widgets/page_indicator.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/viewmodel/OnBoardingViewModel.dart';
+import 'package:service_app/viewmodel/onboarding_viewmodel.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -37,24 +37,24 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
               const Text(
                 'Quick and Easy',
-                style: Heading_3,
+                style: heading_3,
               ),
               const Text(
                 'Booking',
-                style: Heading_3,
+                style: heading_3,
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
               const Text(
                 'We offer a 3-step booking',
-                style: Paragraph_1,
+                style: paragraph_1,
               ),
               const Text(
                 'which solves your problem',
-                style: Paragraph_1,
+                style: paragraph_1,
               ),
               const Text(
                 'quickly and easily',
-                style: Paragraph_1,
+                style: paragraph_1,
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
               const PageIndicator(

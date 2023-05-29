@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/view/Auth/ResetPassword1.dart';
-import 'package:service_app/view/HomeScreen.dart';
+import 'package:service_app/view/Auth/reset_password_1.dart';
+import 'package:service_app/view/home_screen.dart';
 
 class LoginViewModel {
   void onLoginPressed(BuildContext context) {

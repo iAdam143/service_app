@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
+import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/viewmodel/LoginViewModel.dart';
+import 'package:service_app/viewmodel/login_viewmodel.dart';
 import '../utils/colors.dart';
-import '../utils/custom widgets/CustomCard.dart';
-import '../utils/custom widgets/HomeGrid.dart';
+import '../utils/custom widgets/custom_card.dart';
+import '../utils/custom widgets/home_grid.dart';
+import '../view/ServiceDetail/service_detail_home.dart';
 
 class HomeViewModel {
   final LoginViewModel viewModel = LoginViewModel();
@@ -69,32 +70,35 @@ class HomeViewModel {
   }
 
   Widget buildExploreSection(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
           Padding(
-            padding: EdgeInsets.only(right: 16.0, top: 16.0),
-            child: CustomCard(
+            padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.02, top: MediaQuery.of(context).size.width * 0.02),
+            child: const CustomCard(
               imagePath: 'assets/images/Rectangle 17.png',
               text1: 'Bathroom',
-              text2: 'Cleaning',showCheckbox: false,
+              text2: 'Cleaning',
+              showCheckbox: false,
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(right: 16.0, top: 16.0),
             child: CustomCard(
               imagePath: 'assets/images/Rectangle 17 (1).png',
               text1: 'Grocery',
-              text2: 'Shopping',showCheckbox: false,
+              text2: 'Shopping',
+              showCheckbox: false,
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(right: 16.0, top: 16.0),
             child: CustomCard(
-              imagePath: 'assets/images/image3.jpg',
+              imagePath: 'assets/images/Rectangle 17.png',
               text1: 'Item 3',
-              text2: 'Bathroom',showCheckbox: false,
+              text2: 'Bathroom',
+              showCheckbox: false,
             ),
           ),
         ],
@@ -104,7 +108,7 @@ class HomeViewModel {
 
   Widget buildOffersSection(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.2,
+      height: MediaQuery.of(context).size.height * 0.25,
       child: PageView.builder(
         itemCount: offers.length,
         itemBuilder: (BuildContext context, int index) {
@@ -127,6 +131,7 @@ class HomeViewModel {
   Widget buildImageContainer(BuildContext context, String imagePath) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.25,
       child: Image.asset(
         imagePath,
         fit: BoxFit.fill,
@@ -146,14 +151,25 @@ class HomeViewModel {
         children: [
           Text(
             text1,
-            style: Heading_5.copyWith(color: Colors.white),
+            style: heading_5.copyWith(color: Colors.white),
           ),
           Text(
             text,
-            style: Heading_2.copyWith(color: Colors.white),
+            style: heading_2.copyWith(color: Colors.white),
           ),
           CustomButton3(
-            onPressed: () => viewModel.onLoginPressed(context),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ServiceDetailHome(
+                    image: 'assets/images/offerimage.png',
+                    title: 'Full Pack',
+                    subTitle: '',
+                  ),
+                ),
+              );
+            },
             text: 'Book Now',
             textColor: myPrimaryColor,
           ),

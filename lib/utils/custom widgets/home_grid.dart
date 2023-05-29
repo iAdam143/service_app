@@ -8,7 +8,7 @@ class GridItem extends StatelessWidget {
   final String image;
   final String text;
 
-  const GridItem({
+  const GridItem({super.key,
     required this.image,
     required this.text,
   });
@@ -33,7 +33,7 @@ class GridItem extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           const SizedBox(height: 8.0),
-          Text(text,style: Heading_7.copyWith(color: myLightGreyColor)),
+          Text(text,style: heading_7.copyWith(color: myLightGreyColor)),
         ],
       ),
     );

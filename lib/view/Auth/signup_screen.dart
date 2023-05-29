@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
-import 'package:service_app/utils/custom%20widgets/CustomTextFields.dart';
-import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
+import 'package:service_app/utils/custom%20widgets/custom_text_fields.dart';
+import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/viewmodel/ResetPasswordViewModel.dart';
+import 'package:service_app/viewmodel/signup_viewmodel.dart';
 
-class ResetPassword2 extends StatelessWidget {
-  ResetPassword2({super.key});
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
 
-  final ResetPasswordViewModel viewModel = ResetPasswordViewModel();
+  final SignUpViewModel viewModel = SignUpViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,11 @@ class ResetPassword2 extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        buildImage(),
+        buildLogo(),
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
         const Text(
-          'Create new password',
-          style: Heading_3,
+          'Sign up',
+          style: heading_3,
         ),
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
         buildDescriptionText(),
@@ -42,9 +42,9 @@ class ResetPassword2 extends StatelessWidget {
     );
   }
 
-  Widget buildImage() {
+  Widget buildLogo() {
     return Image.asset(
-      'assets/images/Frame.png',
+      'assets/images/logo_icon.png',
       fit: BoxFit.contain,
       height: 60,
       width: 90,
@@ -52,9 +52,17 @@ class ResetPassword2 extends StatelessWidget {
   }
 
   Widget buildDescriptionText() {
-    return Text(
-      'Please set a new and strong password',
-      style: Paragraph_2.copyWith(color: myDarkGreyColor),
+    return Column(
+      children: [
+        Text(
+          'Please enter your details to sign up and',
+          style: paragraph_2.copyWith(color: myDarkGreyColor),
+        ),
+        Text(
+          'create an account.',
+          style: paragraph_2.copyWith(color: myDarkGreyColor),
+        ),
+      ],
     );
   }
 
@@ -73,28 +81,46 @@ class ResetPassword2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Password',
-              style: Heading_6,
+              'Your name',
+              style: heading_6,
             ),
-            PasswordTextField(),
+            const IconTextField(
+              svgPath: 'assets/images/man.svg',
+              hintText: 'your name here',
+            ),
+            SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+            const Text(
+              'Phone number',
+              style: heading_6,
+            ),
+            const IconTextField(
+              svgPath: 'assets/images/phone.svg',
+              hintText: 'your phone number here',
+            ),
+            SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+            const Text(
+              'Password',
+              style: heading_6,
+            ),
+            const PasswordTextField(),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
             const Text(
               'Retype your password',
-              style: Heading_6,
+              style: heading_6,
             ),
-            PasswordTextField(),
+            const PasswordTextField(),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
-            buildConfirmButton(context),
+            buildSignupButton(context),
           ],
         ),
       ),
     );
   }
 
-  Widget buildConfirmButton(BuildContext context) {
+  Widget buildSignupButton(BuildContext context) {
     return CustomButton2(
-      onPressed: () => viewModel.onConfirmPressed(context),
-      text: 'Confirm',
+      onPressed: () => viewModel.onSignUpPressed(context),
+      text: 'Sign up',
     );
   }
 }

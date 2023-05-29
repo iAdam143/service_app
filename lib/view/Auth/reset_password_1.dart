@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
-import 'package:service_app/utils/custom%20widgets/CustomTextFields.dart';
-import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
+import 'package:service_app/utils/custom%20widgets/custom_text_fields.dart';
+import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/viewmodel/ResetPasswordViewModel.dart';
+import 'package:service_app/viewmodel/reset_password_viewmodel.dart';
 
 class ResetPassword1 extends StatelessWidget {
   ResetPassword1({super.key});
@@ -30,7 +30,7 @@ class ResetPassword1 extends StatelessWidget {
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
         const Text(
           'Reset your password',
-          style: Heading_3,
+          style: heading_3,
         ),
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
         buildDescriptionText(),
@@ -56,11 +56,11 @@ class ResetPassword1 extends StatelessWidget {
       children: [
         Text(
           'Please enter your number. We will send a',
-          style: Paragraph_2.copyWith(color: myDarkGreyColor),
+          style: paragraph_2.copyWith(color: myDarkGreyColor),
         ),
         Text(
           'code to your phone to reset your password.',
-          style: Paragraph_2.copyWith(color: myDarkGreyColor),
+          style: paragraph_2.copyWith(color: myDarkGreyColor),
         ),
       ],
     );
@@ -82,9 +82,9 @@ class ResetPassword1 extends StatelessWidget {
           children: [
             const Text(
               'Phone number',
-              style: Heading_6,
+              style: heading_6,
             ),
-            IconTextField(
+            const IconTextField(
               svgPath: 'assets/images/phone.svg',
               hintText: 'your phone number here',
             ),

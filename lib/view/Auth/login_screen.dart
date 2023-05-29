@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
-import 'package:service_app/utils/custom%20widgets/CustomTextFields.dart';
-import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
+import 'package:service_app/utils/custom%20widgets/custom_text_fields.dart';
+import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/viewmodel/SignUpViewModel.dart';
+import 'package:service_app/view/Auth/signup_screen.dart';
+import 'package:service_app/viewmodel/login_viewmodel.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  final LoginViewModel viewModel = LoginViewModel();
 
-  final SignUpViewModel viewModel = SignUpViewModel();
-
+  LoginScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,11 +29,15 @@ class SignUpScreen extends StatelessWidget {
         buildLogo(),
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
         const Text(
-          'Sign up',
-          style: Heading_3,
+          'Login',
+          style: heading_3,
         ),
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
-        buildDescriptionText(),
+        Text(
+          'Welcome back!',
+          style: paragraph_2.copyWith(color: myDarkGreyColor),
+        ),
+        buildSignupText(context),
         Padding(
           padding: const EdgeInsets.all(25.0),
           child: buildContainer(context),
@@ -51,16 +55,32 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Widget buildDescriptionText() {
-    return Column(
+  Widget buildSignupText(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Please enter your details to sign up and',
-          style: Paragraph_2.copyWith(color: myDarkGreyColor),
+          'Don’t have an account?',
+          style: paragraph_2.copyWith(color: myDarkGreyColor),
         ),
-        Text(
-          'create an account.',
-          style: Paragraph_2.copyWith(color: myDarkGreyColor),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SignUpScreen(),
+              ),
+            );
+          },
+          child: const Text(
+            'Sign up',
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'SFPro',
+              color: myPrimaryColor,
+            ),
+          ),
         ),
       ],
     );
@@ -80,47 +100,44 @@ class SignUpScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Your name',
-              style: Heading_6,
-            ),
-            IconTextField(
-              svgPath: 'assets/images/man.svg',
-              hintText: 'your name here',
-            ),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
             const Text(
               'Phone number',
-              style: Heading_6,
+              style: heading_6,
             ),
-            IconTextField(
+            const IconTextField(
               svgPath: 'assets/images/phone.svg',
               hintText: 'your phone number here',
             ),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
             const Text(
               'Password',
-              style: Heading_6,
+              style: heading_6,
             ),
-            PasswordTextField(),
+            const PasswordTextField(),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
-            const Text(
-              'Retype your password',
-              style: Heading_6,
-            ),
-            PasswordTextField(),
+            buildForgotPasswordText(context),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
-            buildSignupButton(context),
+            buildLoginButton(context),
           ],
         ),
       ),
     );
   }
 
-  Widget buildSignupButton(BuildContext context) {
+  Widget buildForgotPasswordText(BuildContext context) {
+    return GestureDetector(
+      onTap: () =>viewModel.onResetPasswordPressed(context),
+      child: const Text(
+        'Forgot your password?',
+        style: heading_7,
+      ),
+    );
+  }
+
+  Widget buildLoginButton(BuildContext context) {
     return CustomButton2(
-      onPressed: () => viewModel.onSignUpPressed(context),
-      text: 'Sign up',
+      onPressed: () =>viewModel.onLoginPressed(context),
+      text: 'Login',
     );
   }
 }

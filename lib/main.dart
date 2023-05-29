@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/view/HomeScreen.dart';
-import 'package:service_app/view/SplashScreen.dart';
+import 'package:service_app/view/splash_screen.dart';
 
 
 void main() {
   runApp(
-    MyApp(),
+    const MyApp(),
   );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       //home: SplashScreen(),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomeScreen(),
+        '/': (context) => const SplashScreen(),
         //'/category': (context) => CategoryScreen(),
         //'/fruits': (context) => FruitsScreen(),
         //'/vegetables': (context) => VegetablesScreen(),

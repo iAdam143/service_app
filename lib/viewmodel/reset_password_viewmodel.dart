@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/view/Auth/LoginScreen.dart';
-import 'package:service_app/view/Auth/VerificationScreen.dart';
+import 'package:service_app/view/Auth/login_screen.dart';
+import 'package:service_app/view/Auth/verification_screen.dart';
 
 class ResetPasswordViewModel {
   void onSendMyCodePressed(BuildContext context) {

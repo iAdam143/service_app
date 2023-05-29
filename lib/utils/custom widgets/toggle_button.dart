@@ -18,11 +18,13 @@ class _TextToggleButtonRowState extends State<TextToggleButtonRow> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          'Domestic worker',
-          style: Heading_7.copyWith(color: myLightPColor),
+        Expanded(
+          child: Text(
+            'Domestic worker',
+            style: heading_7.copyWith(color: myLightPColor),
+          ),
         ),
-        const Spacer(),
+        const SizedBox(width: 16),
         Transform.scale(
           scale: 0.5,
           child: CupertinoSwitch(
@@ -35,7 +37,7 @@ class _TextToggleButtonRowState extends State<TextToggleButtonRow> {
             },
           ),
         ),
-        Text('My Favourite', style: Paragraph_3.copyWith(color: myLightPColor,fontSize: 14)),
+        Text('My Favourite', style: paragraph_3.copyWith(color: myLightPColor,fontSize: 14)),
       ],
     );
   }

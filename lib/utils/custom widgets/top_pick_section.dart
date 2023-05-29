@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/view/ItemDetailsScreen.dart';
+import 'package:service_app/view/ServiceDetail/service_detail_home.dart';
 
 class TopPickRow extends StatelessWidget {
   const TopPickRow({super.key});
@@ -17,11 +17,10 @@ class TopPickRow extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
-              // Navigate to ItemDetailsScreen with image and text
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ItemDetailsScreen(
+                  builder: (context) => const ServiceDetailHome(
                     image: 'assets/images/Rectangle 15.png',
                     title: 'Full house',
                     subTitle: 'Cleaning',
@@ -36,7 +35,7 @@ class TopPickRow extends StatelessWidget {
                 color: mySecondaryColor,
               ),
               height: containerHeight,
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
               child: Column(
                 children: [
                   const Expanded(
@@ -48,11 +47,11 @@ class TopPickRow extends StatelessWidget {
                   const SizedBox(height: 8.0),
                   Text(
                     'Full house',
-                    style: Heading_5.copyWith(color: myLightPColor),
+                    style: heading_5.copyWith(color: myLightPColor),
                   ),
                   Text(
                     'Cleaning',
-                    style: Heading_5.copyWith(color: myLightPColor),
+                    style: heading_5.copyWith(color: myLightPColor),
                   ),
                 ],
               ),
@@ -66,11 +65,10 @@ class TopPickRow extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  // Navigate to ItemDetailsScreen with image and text
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ItemDetailsScreen(
+                      builder: (context) => const ServiceDetailHome(
                         image: 'assets/images/Rectangle 16.png',
                         title: 'Plumbing',
                         subTitle: '',
@@ -84,7 +82,7 @@ class TopPickRow extends StatelessWidget {
                     color: myLightTealColor,
                   ),
                   height: containerHeight2,
-                  padding: const EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
                   child: Column(
                     children: [
                       const Expanded(
@@ -96,7 +94,7 @@ class TopPickRow extends StatelessWidget {
                       const SizedBox(height: 8.0),
                       Text(
                         'Plumbing',
-                        style: Heading_6.copyWith(color: myLightPColor),
+                        style: heading_6.copyWith(color: myLightPColor),
                       ),
                     ],
                   ),
@@ -105,11 +103,10 @@ class TopPickRow extends StatelessWidget {
               const SizedBox(height: 16.0),
               GestureDetector(
                 onTap: () {
-                  // Navigate to ItemDetailsScreen with image and text
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ItemDetailsScreen(
+                      builder: (context) => const ServiceDetailHome(
                         image: 'assets/images/Rectangle 16 (1).png',
                         title: 'Cooking',
                         subTitle: '',
@@ -123,7 +120,7 @@ class TopPickRow extends StatelessWidget {
                     color: mygreyColor,
                   ),
                   height: containerHeight2,
-                  padding: const EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
                   child: Column(
                     children: [
                       const Expanded(
@@ -136,7 +133,7 @@ class TopPickRow extends StatelessWidget {
                       const SizedBox(height: 8.0),
                       Text(
                         'Cooking',
-                        style: Heading_6.copyWith(color: myLightPColor),
+                        style: heading_6.copyWith(color: myLightPColor),
                       ),
                     ],
                   ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
-import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
-import 'package:service_app/utils/custom%20widgets/PageIndicator.dart';
+import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
+import 'package:service_app/utils/custom%20widgets/page_indicator.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/viewmodel/OnBoardingViewModel.dart';
+import 'package:service_app/viewmodel/onboarding_viewmodel.dart';
 
 class OnBoardingScreen2 extends StatefulWidget {
   const OnBoardingScreen2({super.key});
@@ -37,24 +37,24 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
               const Text(
                 'Security and',
-                style: Heading_3,
+                style: heading_3,
               ),
               const Text(
                 'Professionalism',
-                style: Heading_3,
+                style: heading_3,
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
               const Text(
                 'All our domestic workers have',
-                style: Paragraph_1,
+                style: paragraph_1,
               ),
               const Text(
                 'transparent background and',
-                style: Paragraph_1,
+                style: paragraph_1,
               ),
               const Text(
                 'are well-trained',
-                style: Paragraph_1,
+                style: paragraph_1,
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
               const PageIndicator(

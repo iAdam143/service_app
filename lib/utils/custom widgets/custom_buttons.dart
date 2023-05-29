@@ -7,7 +7,7 @@ class CustomButton1 extends StatelessWidget {
   final Color textColor;
   final Color buttonColor;
 
-  const CustomButton1({
+  const CustomButton1({super.key,
     required this.onPressed,
     required this.text,
     this.textColor = Colors.white,
@@ -24,6 +24,7 @@ class CustomButton1 extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14.0),
         ),
+        elevation: 0,
       ),
       child: Text(
         text,
@@ -39,7 +40,7 @@ class CustomButton2 extends StatelessWidget {
   final Color textColor;
   final Color buttonColor;
 
-  const CustomButton2({
+  const CustomButton2({super.key,
     required this.onPressed,
     required this.text,
     this.textColor = Colors.white,
@@ -56,6 +57,7 @@ class CustomButton2 extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14.0),
         ),
+        elevation: 0,
       ),
       child: Text(
         text,
@@ -72,11 +74,12 @@ class CustomButton3 extends StatelessWidget {
   final Color buttonColor;
 
   const CustomButton3({
+    Key? key,
     required this.onPressed,
     required this.text,
     this.textColor = Colors.white,
     this.buttonColor = myLPurplelColor,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +91,7 @@ class CustomButton3 extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14.0),
         ),
+        elevation: 0, // Set elevation to 0
       ),
       child: Text(
         text,
@@ -97,13 +101,14 @@ class CustomButton3 extends StatelessWidget {
   }
 }
 
+
 class CustomButton4 extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
   final Color textColor;
   final Color buttonColor;
 
-  const CustomButton4({
+  const CustomButton4({super.key,
     required this.onPressed,
     required this.text,
     this.textColor = myPrimaryColor,
@@ -120,6 +125,7 @@ class CustomButton4 extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14.0),
         ),
+        elevation: 0,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

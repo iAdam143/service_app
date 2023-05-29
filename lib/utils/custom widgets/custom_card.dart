@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/utils/custom%20widgets/Custom_buttons.dart';
+import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
 
-import '../../viewmodel/LoginViewModel.dart';
+import '../../viewmodel/login_viewmodel.dart';
 import '../colors.dart';
 
 class CustomCard extends StatefulWidget {
@@ -75,7 +75,7 @@ class _CustomCardState extends State<CustomCard> {
             const SizedBox(height: 8.0),
             const Text(
               '5.0⭐',
-              style: Paragraph_3,
+              style: paragraph_3,
             ),
             const SizedBox(height: 8.0),
             CustomButton3(
@@ -93,7 +93,7 @@ class _CustomCardState extends State<CustomCard> {
     }
 
     return Container(
-      width: MediaQuery.of(context).size.width * 0.3,
+      width: MediaQuery.of(context).size.width * 0.35,
       decoration: BoxDecoration(
         border: Border.all(
           color: mygreyColor,
@@ -118,11 +118,11 @@ class _CustomCardState extends State<CustomCard> {
                 const SizedBox(height: 8.0),
                 Text(
                   widget.text1,
-                  style: Heading_6,
+                  style: heading_6,
                 ),
                 Text(
                   widget.text2,
-                  style: Heading_6,
+                  style: heading_6,
                 ),
                 buildAdditionalContent(),
                 // Call the buildAdditionalContent method

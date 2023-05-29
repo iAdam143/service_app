@@ -26,11 +26,11 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
                   children: [
                     Text(
                       'Hi John,',
-                      style: Heading_2.copyWith(color: Colors.white),
+                      style: heading_2.copyWith(color: Colors.white),
                     ),
                     Text(
                       'Need some help today?',
-                      style: Paragraph_1.copyWith(color: Colors.white),
+                      style: paragraph_1.copyWith(color: Colors.white),
                     ),
                   ],
                 ),
@@ -49,7 +49,7 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
               child: TextFormField(
                 decoration: InputDecoration(
                   hintText: 'Find it here',
-                  hintStyle: Paragraph_1,
+                  hintStyle: paragraph_1,
                   filled: true,
                   fillColor: Colors.white,
                   border: OutlineInputBorder(

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/view/Onboarding/OnboardingScreen1.dart';
+import 'package:service_app/view/Onboarding/onboarding_screen_1.dart';
 
 import '../utils/colors.dart';
 
@@ -52,11 +52,11 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                   Text(
                     'Service',
-                    style: Heading_1,
+                    style: heading_1,
                   ),
                   Text(
                     'App',
-                    style: Heading_1,
+                    style: heading_1,
                   ),
                 ],
               ),
