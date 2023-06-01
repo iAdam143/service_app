@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/app_bar_delegate.dart';
 import 'package:service_app/utils/custom%20widgets/custom_navigation_bar.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/custom%20widgets/top_pick_section.dart';
 import 'package:service_app/utils/textstyles.dart';
+import 'package:service_app/view/user_profile_screen.dart';
 import 'package:service_app/viewmodel/home_viewmodel.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -62,11 +64,11 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: const MyBottomNavigationBar(),
-      endDrawer: buildDrawer(),
+      endDrawer: buildDrawer(context),
     );
   }
 
-  Widget buildDrawer() {
+  Widget buildDrawer(BuildContext context) {
     return Drawer(
       child: Column(
         children: [
@@ -83,48 +85,52 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.person),
+            leading: SvgPicture.asset('assets/images/man.svg'),
             title: const Text('Profile'),
             onTap: () {
-              // Handle profile tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UserProfileScreen(),
+                ),
+              );
             },
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading: SvgPicture.asset('assets/images/gift.svg'),
             title: const Text('Promotion'),
             onTap: () {
               // Handle settings tap
             },
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading: SvgPicture.asset('assets/images/setting.svg'),
             title: const Text('Settings'),
             onTap: () {
               // Handle settings tap
             },
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading: SvgPicture.asset('assets/images/support.svg'),
             title: const Text('Support'),
             onTap: () {
               // Handle settings tap
             },
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading: SvgPicture.asset('assets/images/policy.svg'),
             title: const Text('Policy'),
             onTap: () {
               // Handle settings tap
             },
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading: SvgPicture.asset('assets/images/log out.svg'),
             title: const Text('Log out'),
             onTap: () {
               // Handle settings tap
             },
           ),
-          // Add more ListTiles or custom widgets for additional content
         ],
       ),
     );

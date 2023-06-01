@@ -38,6 +38,7 @@ dependencies:
   flutter_svg: ^2.0.6
   intl: ^0.18.1
   flutter_screenutil: ^5.8.4
+  image_picker: ^0.8.7+5
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -99,6 +100,12 @@ flutter:
      - assets/images/Avatar (1).png
      - assets/images/Avatar.png
      - assets/images/finish@4x 1.png
+     - assets/images/setting.svg
+     - assets/images/support.svg
+     - assets/images/log out.svg
+     - assets/images/policy.svg
+     - assets/images/mail.svg
+     - assets/images/camera.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
