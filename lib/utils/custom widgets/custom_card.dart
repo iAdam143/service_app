@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
 
@@ -29,7 +30,7 @@ class _CustomCardState extends State<CustomCard> {
 
   @override
   Widget build(BuildContext context) {
-    final containerHeight = MediaQuery.of(context).size.height * 0.3;
+    final containerHeight = 90.h;
 
     Widget buildCheckbox() {
       if (widget.showCheckbox) {
@@ -93,7 +94,7 @@ class _CustomCardState extends State<CustomCard> {
     }
 
     return Container(
-      width: MediaQuery.of(context).size.width * 0.35,
+      width: 60.w,
       decoration: BoxDecoration(
         border: Border.all(
           color: mygreyColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/custom_text_fields.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
@@ -27,12 +28,12 @@ class LoginScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         buildLogo(),
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+        SizedBox(height: 10.h),
         const Text(
           'Login',
           style: heading_3,
         ),
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
+        SizedBox(height: 7.h),
         Text(
           'Welcome back!',
           style: paragraph_2.copyWith(color: myDarkGreyColor),
@@ -108,15 +109,15 @@ class LoginScreen extends StatelessWidget {
               svgPath: 'assets/images/phone.svg',
               hintText: 'your phone number here',
             ),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+            SizedBox(height: 12.h),
             const Text(
               'Password',
               style: heading_6,
             ),
             const PasswordTextField(),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+            SizedBox(height: 12.h),
             buildForgotPasswordText(context),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+            SizedBox(height: 12.h),
             buildLoginButton(context),
           ],
         ),

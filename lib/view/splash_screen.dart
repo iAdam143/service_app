@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:service_app/utils/textstyles.dart';
 import 'package:service_app/view/onboarding_screen.dart';
@@ -47,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ],
               ),
-              SizedBox(width: MediaQuery.sizeOf(context).width*0.03),
+              SizedBox(height: 12.h),
               const Column(
                 children: [
                   Text(

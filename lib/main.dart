@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:service_app/view/home_screen.dart';
 import 'package:service_app/view/splash_screen.dart';
 
 
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(176.4, 383.04),minTextAdapt: true);
     return MaterialApp(
       theme: ThemeData(
           useMaterial3: true),
@@ -20,7 +23,8 @@ class MyApp extends StatelessWidget {
       //home: SplashScreen(),
       initialRoute: '/',
       routes: {
-        '/': (context) => const SplashScreen(),
+        //'/': (context) => HomeScreen(),
+        '/': (context) => SplashScreen(),
         //'/category': (context) => CategoryScreen(),
         //'/fruits': (context) => FruitsScreen(),
         //'/vegetables': (context) => VegetablesScreen(),

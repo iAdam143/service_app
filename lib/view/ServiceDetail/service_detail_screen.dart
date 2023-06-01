@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/custom_text_fields.dart';
 import 'package:service_app/utils/custom%20widgets/toggle_button.dart';
@@ -35,7 +36,6 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -49,7 +49,7 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen> {
   Widget buildSliverPersistentHeader(BuildContext context) {
     return SliverPersistentHeader(
       delegate: MySliverAppBarDelegate(
-        expandedHeight: 250,
+        expandedHeight: 210,
         image: widget.image,
         title: widget.title,
         subTitle: widget.subTitle,
@@ -62,7 +62,7 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen> {
     return SliverList(
       delegate: SliverChildListDelegate([
         Padding(
-          padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+          padding: EdgeInsets.all(9.w),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -177,62 +177,61 @@ class MySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
-    final bool showtext = shrinkOffset < expandedHeight / 4.0;
+    final bool showtext = shrinkOffset < expandedHeight / 4.5;
     return Container(
       color: myLightPurpleColor,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 22.0, right: 22.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (showtext)
-              Stack(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    color: Colors.white,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (showtext)
+            Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back, color: Colors.white),
+                  color: Colors.white,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                Expanded(
+                  child: Center(
                     child: Text(
                       'Pick a Service',
                       style: heading_5.copyWith(color: Colors.white),
                     ),
                   ),
-                ],
-              ),
-            Padding(
-              padding: const EdgeInsets.only(top: 22),
-              child: Row(
-                children: [
-                  Image.asset(
-                    image,
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(width: 16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        style: heading_3.copyWith(color: Colors.white),
-                      ),
-                      Text(
-                        subTitle,
-                        style: heading_3.copyWith(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          Padding(
+            padding: const EdgeInsets.only(top: 5, left: 22.0, right: 22.0),
+            child: Row(
+              children: [
+                Image.asset(
+                  image,
+                  width: 120,
+                  height: 120,
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(width: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: heading_3.copyWith(color: Colors.white),
+                    ),
+                    Text(
+                      subTitle,
+                      style: heading_3.copyWith(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

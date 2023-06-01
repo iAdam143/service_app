@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/textstyles.dart';
 import 'package:service_app/view/ServiceDetail/service_detail_home.dart';
@@ -8,7 +9,7 @@ class TopPickRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = ScreenUtil().screenWidth;
     double containerHeight = screenWidth > 700 ? 420 : 250;
     double containerHeight2 = screenWidth > 700 ? 200 : 115;
 
@@ -29,13 +30,13 @@ class TopPickRow extends StatelessWidget {
               );
             },
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.2,
+              width: 20.w,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
                 color: mySecondaryColor,
               ),
               height: containerHeight,
-              padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
+              padding: EdgeInsets.all(5.w),
               child: Column(
                 children: [
                   const Expanded(
@@ -82,7 +83,7 @@ class TopPickRow extends StatelessWidget {
                     color: myLightTealColor,
                   ),
                   height: containerHeight2,
-                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
+                  padding: EdgeInsets.all(5.w),
                   child: Column(
                     children: [
                       const Expanded(
@@ -120,7 +121,7 @@ class TopPickRow extends StatelessWidget {
                     color: mygreyColor,
                   ),
                   height: containerHeight2,
-                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
+                  padding: EdgeInsets.all(5.w),
                   child: Column(
                     children: [
                       const Expanded(

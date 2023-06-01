@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/app_bar_delegate.dart';
 import 'package:service_app/utils/custom%20widgets/custom_navigation_bar.dart';
@@ -26,9 +27,9 @@ class HomeScreen extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).size.width * 0.05,
-                left: MediaQuery.of(context).size.width * 0.05,
-                right: MediaQuery.of(context).size.width * 0.05,
+                bottom: 8.w,
+                left: 8.w,
+                right: 8.w,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

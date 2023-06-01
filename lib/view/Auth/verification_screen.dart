@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/custom_text_fields.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
@@ -28,12 +29,12 @@ class VerifyScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         buildImage(),
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+        SizedBox(height: 12.h),
         const Text(
           'Verify',
           style: heading_3,
         ),
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
+        SizedBox(height: 5.h),
         buildDescriptionText(),
         Padding(
           padding: const EdgeInsets.all(25.0),
@@ -86,9 +87,9 @@ class VerifyScreen extends StatelessWidget {
               style: heading_6,
             ),
             const FourDigitTextField(),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+            SizedBox(height: 10.h),
             buildResendCodeRow(),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+            SizedBox(height: 12.h),
             buildConfirmButton(context),
           ],
         ),

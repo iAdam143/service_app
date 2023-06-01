@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/custom%20widgets/page_indicator.dart';
@@ -72,7 +73,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ],
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+        SizedBox(height: 5.h),
         buildButtons(context),
       ],
     );
@@ -84,12 +85,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(image, fit: BoxFit.cover, height: 200, width: 200),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+        SizedBox(height: 12.h),
         Text(title1, style: heading_3),
         Text(title2, style: heading_3),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+        SizedBox(height: 5.h),
         Text(description, style: paragraph_1),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+        SizedBox(height: 8.h),
         PageIndicator(currentPage: currentPage),
       ],
     );
@@ -98,7 +99,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget buildButtons(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).size.height * 0.03,
+        bottom: 12.h,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -125,7 +126,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 text: 'Skip',
                 textColor: myDarkGreyColor,
                 buttonColor: mybackbuttonColor),
-          SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+          SizedBox(height: 12.h),
           if (_currentPage == 2)
             CustomButton1(
                 onPressed: () => viewModel.onSignUpPressed(context),

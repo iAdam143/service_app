@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/custom_text_fields.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
@@ -27,12 +28,12 @@ class ResetPassword1 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         buildImage(),
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+        SizedBox(height: 12.h),
         const Text(
           'Reset your password',
           style: heading_3,
         ),
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
+        SizedBox(height: 5.h),
         buildDescriptionText(),
         Padding(
           padding: const EdgeInsets.all(25.0),
@@ -88,7 +89,7 @@ class ResetPassword1 extends StatelessWidget {
               svgPath: 'assets/images/phone.svg',
               hintText: 'your phone number here',
             ),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+            SizedBox(height: 12.h),
             buildSendCodeButton(context),
           ],
         ),

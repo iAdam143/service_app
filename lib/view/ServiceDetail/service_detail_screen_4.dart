@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
@@ -31,12 +32,12 @@ class _ServiceDetailScreen4State extends State<ServiceDetailScreen4> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           buildImage(),
-          SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+          SizedBox(height: 10.h),
           const Text(
             'Success!',
             style: heading_3,
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
+          SizedBox(height: 4.h),
           const Text(
             'Ready to say Wow?',
             style: paragraph_1,
@@ -50,7 +51,7 @@ class _ServiceDetailScreen4State extends State<ServiceDetailScreen4> {
             'go back to home screen',
             style: paragraph_1,
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
+          SizedBox(height: 15.h),
           buildButtons(context),
         ],
       ),
@@ -61,15 +62,15 @@ class _ServiceDetailScreen4State extends State<ServiceDetailScreen4> {
     return Image.asset(
       'assets/images/finish@4x 1.png',
       fit: BoxFit.cover,
-      height: 200,
-      width: 200,
+      height: 220,
+      width: 220,
     );
   }
 
   Widget buildButtons(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        bottom: MediaQuery.sizeOf(context).height * 0.2,
+        bottom: 20.h,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +81,7 @@ class _ServiceDetailScreen4State extends State<ServiceDetailScreen4> {
             textColor: myPrimaryColor,
             buttonColor: myLPurplelColor,
           ),
-          SizedBox(width: MediaQuery.sizeOf(context).width * 0.03),
+          SizedBox(width: 4.w),
           CustomButton1(
             onPressed: () => viewModel.onHomePressed(context),
             text: 'Home',
