@@ -91,7 +91,35 @@ class HomeScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.settings),
+            title: const Text('Promotion'),
+            onTap: () {
+              // Handle settings tap
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
             title: const Text('Settings'),
+            onTap: () {
+              // Handle settings tap
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Support'),
+            onTap: () {
+              // Handle settings tap
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Policy'),
+            onTap: () {
+              // Handle settings tap
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Log out'),
             onTap: () {
               // Handle settings tap
             },
