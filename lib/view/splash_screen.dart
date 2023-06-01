@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:service_app/utils/textstyles.dart';
-import 'package:service_app/view/Onboarding/onboarding_screen_1.dart';
+import 'package:service_app/view/onboarding_screen.dart';
 
 import '../utils/colors.dart';
 

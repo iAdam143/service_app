@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../colors.dart';
 import '../textstyles.dart';
 
 class AppBarDelegate extends SliverPersistentHeaderDelegate {
-  final double maxAppBarHeight = 250.0; // Maximum height of the app bar
+  final double maxAppBarHeight = 250.0;
 
   @override
   Widget build(
@@ -35,10 +34,16 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
                   ],
                 ),
                 const Spacer(),
-                Image.asset(
-                  'assets/images/Hamburger.png',
-                  fit: BoxFit.cover,color: const Color.fromRGBO(255, 255, 255, 0.7), // Adjust the opacity value (0.0 - 1.0)
+                GestureDetector(
+                  onTap: () {
+                    Scaffold.of(context).openEndDrawer();
+                  },
+                  child: Image.asset(
+                    'assets/images/Hamburger.png',
+                    fit: BoxFit.cover,
+                    color: const Color.fromRGBO(255, 255, 255, 0.7),
                     colorBlendMode: BlendMode.modulate,
+                  ),
                 ),
               ],
             ),
@@ -56,7 +61,7 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
                     borderRadius: BorderRadius.circular(15.0),
                     borderSide: BorderSide.none,
                   ),
-                  prefixIcon: const Icon(Icons.search), // Add the search icon here
+                  prefixIcon: const Icon(Icons.search),
                 ),
               ),
             ),

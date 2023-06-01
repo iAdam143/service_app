@@ -9,12 +9,14 @@ import 'package:service_app/viewmodel/home_viewmodel.dart';
 
 class HomeScreen extends StatelessWidget {
   final HomeViewModel viewModel = HomeViewModel();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverPersistentHeader(
@@ -23,8 +25,11 @@ class HomeScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding:
-                   EdgeInsets.only(bottom: MediaQuery.of(context).size.width * 0.05, left: MediaQuery.of(context).size.width * 0.05, right: MediaQuery.of(context).size.width * 0.05),
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.width * 0.05,
+                left: MediaQuery.of(context).size.width * 0.05,
+                right: MediaQuery.of(context).size.width * 0.05,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -46,7 +51,9 @@ class HomeScreen extends StatelessWidget {
                   viewModel.buildExploreSection(context),
                   const SizedBox(height: 16.0),
                   CustomButton4(
-                      onPressed: () => HomeScreen(), text: 'Need more service?')
+                    onPressed: () => HomeScreen(),
+                    text: 'Need more service?',
+                  ),
                 ],
               ),
             ),
@@ -54,6 +61,43 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: const MyBottomNavigationBar(),
+      endDrawer: buildDrawer(),
+    );
+  }
+
+  Widget buildDrawer() {
+    return Drawer(
+      child: Column(
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text(
+              'Drawer Header',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.person),
+            title: const Text('Profile'),
+            onTap: () {
+              // Handle profile tap
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
+            onTap: () {
+              // Handle settings tap
+            },
+          ),
+          // Add more ListTiles or custom widgets for additional content
+        ],
+      ),
     );
   }
 }

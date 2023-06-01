@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/utils/colors.dart';
+import 'package:service_app/utils/textstyles.dart';
 
 class CustomButton1 extends StatelessWidget {
   final VoidCallback onPressed;
@@ -7,7 +8,8 @@ class CustomButton1 extends StatelessWidget {
   final Color textColor;
   final Color buttonColor;
 
-  const CustomButton1({super.key,
+  const CustomButton1({
+    super.key,
     required this.onPressed,
     required this.text,
     this.textColor = Colors.white,
@@ -28,7 +30,7 @@ class CustomButton1 extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(color: textColor),
+        style: paragraph_2.copyWith(color: textColor),
       ),
     );
   }
@@ -40,7 +42,8 @@ class CustomButton2 extends StatelessWidget {
   final Color textColor;
   final Color buttonColor;
 
-  const CustomButton2({super.key,
+  const CustomButton2({
+    super.key,
     required this.onPressed,
     required this.text,
     this.textColor = Colors.white,
@@ -61,7 +64,7 @@ class CustomButton2 extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(color: textColor),
+        style: paragraph_2.copyWith(color: textColor),
       ),
     );
   }
@@ -95,12 +98,11 @@ class CustomButton3 extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(color: textColor),
+        style: paragraph_2.copyWith(color: textColor),
       ),
     );
   }
 }
-
 
 class CustomButton4 extends StatelessWidget {
   final VoidCallback onPressed;
@@ -108,7 +110,8 @@ class CustomButton4 extends StatelessWidget {
   final Color textColor;
   final Color buttonColor;
 
-  const CustomButton4({super.key,
+  const CustomButton4({
+    super.key,
     required this.onPressed,
     required this.text,
     this.textColor = myPrimaryColor,
@@ -137,7 +140,7 @@ class CustomButton4 extends StatelessWidget {
           const SizedBox(width: 8.0),
           Text(
             text,
-            style: TextStyle(color: textColor),
+            style: paragraph_2.copyWith(color: textColor),
           ),
         ],
       ),

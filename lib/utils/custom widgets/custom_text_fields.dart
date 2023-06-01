@@ -13,10 +13,15 @@ class IconTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onChanged: (value) {
+        String name =value;
+
+      },
       decoration: InputDecoration(
         prefixIcon: Transform.scale(
           scale: 0.5,
+
           child: SvgPicture.asset(
             svgPath,
           ),
