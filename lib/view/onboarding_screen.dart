@@ -126,7 +126,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 text: 'Skip',
                 textColor: myDarkGreyColor,
                 buttonColor: mybackbuttonColor),
-          SizedBox(height: 12.h),
+          SizedBox(width: 12.w),
           if (_currentPage == 2)
             CustomButton1(
                 onPressed: () => viewModel.onSignUpPressed(context),

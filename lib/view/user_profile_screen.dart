@@ -1,21 +1,25 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:service_app/utils/custom%20widgets/profile_bar_delegate.dart';
 import '../utils/colors.dart';
+import '../utils/custom widgets/custom_buttons.dart';
 import '../utils/custom widgets/custom_text_fields.dart';
 import '../utils/textstyles.dart';
 
-class UserProfileScreen extends StatefulWidget {
-  const UserProfileScreen({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  _UserProfileScreenState createState() => _UserProfileScreenState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _UserProfileScreenState extends State<UserProfileScreen> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+class _ProfilePageState extends State<ProfilePage> {
+  File? selectedImage;
   bool showText = false;
+
 
   void onPressed() {
     setState(() {
@@ -23,15 +27,30 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     });
   }
 
+  Future<void> _handleImageSelected() async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.pickImage(
+      source: ImageSource.gallery,
+    );
+
+    if (pickedImage != null) {
+      setState(() {
+        selectedImage = File(pickedImage.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
       body: CustomScrollView(
-        slivers: <Widget>[
+        slivers: [
           SliverPersistentHeader(
+            delegate: ProfileAppBarDelegate(
+              selectedImage: selectedImage,
+              onImageSelected: _handleImageSelected,
+            ),
             pinned: true,
-            delegate: ProfileAppBarDelegate(),
           ),
           SliverToBoxAdapter(
             child: Padding(
@@ -119,66 +138,5 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         ),
       ),
     );
-  }
-}
-
-class ProfileAppBarDelegate extends SliverPersistentHeaderDelegate {
-  final double maxAppBarHeight = 250.0;
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    final bool showtext = shrinkOffset < maxAppBarHeight / 4.5;
-    return Container(
-      color: myLightPurpleColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (showtext)
-            Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      'Your profile',
-                      style: heading_5.copyWith(color: Colors.white),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          Center(
-            child: Container(
-              width: 100.0,
-              height: 100.0,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-              ),
-              child: SvgPicture.asset('assets/images/camera.svg'),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
-  double get maxExtent => maxAppBarHeight;
-
-  @override
-  double get minExtent => 100.0;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return false;
   }
 }
