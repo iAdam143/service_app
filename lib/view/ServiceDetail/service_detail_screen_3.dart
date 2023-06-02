@@ -137,6 +137,7 @@ class _ServiceDetailScreen3State extends State<ServiceDetailScreen3> {
           Navigator.pop(context);
         },
       ),
+      centerTitle: true,
       title: Text(
         'Confirm your Booking',
         style: heading_5.copyWith(color: myHeading3Color),

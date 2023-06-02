@@ -38,6 +38,7 @@ class _ServiceDetailScreen2State extends State<ServiceDetailScreen2> {
           Navigator.pop(context);
         },
       ),
+      centerTitle: true,
       title: Text(
         'Pay for Booking',
         style: heading_5.copyWith(color: myHeading3Color),

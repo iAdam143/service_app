@@ -7,6 +7,7 @@ import 'package:service_app/utils/custom%20widgets/custom_navigation_bar.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/custom%20widgets/top_pick_section.dart';
 import 'package:service_app/utils/textstyles.dart';
+import 'package:service_app/view/support_screen.dart';
 import 'package:service_app/view/user_profile_screen.dart';
 import 'package:service_app/viewmodel/home_viewmodel.dart';
 
@@ -72,16 +73,42 @@ class HomeScreen extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: mygreyColor,
             ),
-            child: Text(
-              'Drawer Header',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      width: 100.0,
+                      height: 100.0,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: SvgPicture.asset('assets/images/camera.svg'),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text('Janet Anderson',
+                        style: heading_4.copyWith(color: myHeading3Color)),
+                    Row(
+                      children: [
+                        SvgPicture.asset('assets/images/Home.svg'),
+                        Text('123 points',
+                            style:
+                                paragraph_2.copyWith(color: myHeading3Color)),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
           ListTile(
@@ -114,7 +141,12 @@ class HomeScreen extends StatelessWidget {
             leading: SvgPicture.asset('assets/images/support.svg'),
             title: const Text('Support'),
             onTap: () {
-              // Handle settings tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SupportScreen(),
+                ),
+              );
             },
           ),
           ListTile(
