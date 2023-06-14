@@ -22,16 +22,38 @@ class ProfileAppBarDelegate extends SliverPersistentHeaderDelegate {
   ) {
     final bool showText = shrinkOffset < maxExtent / 4.5;
 
-    return Container(
-      color: myPrimaryColor,
-      child: Stack(
-        children: [
-          Positioned(
-
-            bottom: -50.0, // Adjust this value to position the container
-            left: 0.0,
-            right: 0.0,
-            child: GestureDetector(
+    return ClipRRect(
+      borderRadius: const BorderRadius.only(
+        bottomLeft: Radius.circular(40.0),
+        bottomRight: Radius.circular(40.0),
+      ),
+      child: Container(
+        color: myPrimaryColor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (showText)
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  const Expanded(
+                    child: Center(
+                      child: Text(
+                        'Your profile',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            GestureDetector(
               onTap: onImageSelected,
               child: Center(
                 child: Container(
@@ -52,28 +74,8 @@ class ProfileAppBarDelegate extends SliverPersistentHeaderDelegate {
                 ),
               ),
             ),
-          ),
-          if (showText)
-            Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                const Expanded(
-                  child: Center(
-                    child: Text(
-                      'Your profile',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

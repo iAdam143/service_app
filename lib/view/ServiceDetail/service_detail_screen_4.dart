@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/textstyles.dart';
+import 'package:service_app/view/tracking_screen.dart';
 import 'package:service_app/viewmodel/service_detail_viewmodel.dart';
 
 class ServiceDetailScreen4 extends StatefulWidget {
@@ -76,7 +77,7 @@ class _ServiceDetailScreen4State extends State<ServiceDetailScreen4> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomButton1(
-            onPressed: () => viewModel.onHomePressed(context),
+            onPressed: () =>viewModel.onHomePressed(context),
             text: 'Track',
             textColor: myPrimaryColor,
             buttonColor: myLPurplelColor,

@@ -178,60 +178,66 @@ class MySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     bool overlapsContent,
   ) {
     final bool showtext = shrinkOffset < expandedHeight / 4.5;
-    return Container(
-      color: myLightPurpleColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (showtext)
-            Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      'Pick a Service',
-                      style: heading_5.copyWith(color: Colors.white),
+    return ClipRRect(
+      borderRadius: const BorderRadius.only(
+        bottomLeft: Radius.circular(40.0),
+        bottomRight: Radius.circular(40.0),
+      ),
+      child: Container(
+        color: myLightPurpleColor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (showtext)
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'Pick a Service',
+                        style: heading_5.copyWith(color: Colors.white),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
+            Padding(
+              padding: const EdgeInsets.only(top: 5, left: 22.0, right: 22.0),
+              child: Row(
+                children: [
+                  Image.asset(
+                    image,
+                    width: 120,
+                    height: 120,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 16),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: heading_3.copyWith(color: Colors.white),
+                      ),
+                      Text(
+                        subTitle,
+                        style: heading_3.copyWith(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5, left: 22.0, right: 22.0),
-            child: Row(
-              children: [
-                Image.asset(
-                  image,
-                  width: 120,
-                  height: 120,
-                  fit: BoxFit.cover,
-                ),
-                const SizedBox(width: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: heading_3.copyWith(color: Colors.white),
-                    ),
-                    Text(
-                      subTitle,
-                      style: heading_3.copyWith(color: Colors.white),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

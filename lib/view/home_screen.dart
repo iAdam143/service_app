@@ -7,6 +7,7 @@ import 'package:service_app/utils/custom%20widgets/custom_navigation_bar.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/custom%20widgets/top_pick_section.dart';
 import 'package:service_app/utils/textstyles.dart';
+import 'package:service_app/view/settings_screen.dart';
 import 'package:service_app/view/support_screen.dart';
 import 'package:service_app/view/user_profile_screen.dart';
 import 'package:service_app/viewmodel/home_viewmodel.dart';
@@ -74,7 +75,7 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: mygreyColor,
             ),
             child: Row(
@@ -118,7 +119,7 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ProfilePage(),
+                  builder: (context) => const ProfilePage(),
                 ),
               );
             },
@@ -134,7 +135,12 @@ class HomeScreen extends StatelessWidget {
             leading: SvgPicture.asset('assets/images/setting.svg'),
             title: const Text('Settings'),
             onTap: () {
-              // Handle settings tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SettingsScreen(),
+                ),
+              );
             },
           ),
           ListTile(
