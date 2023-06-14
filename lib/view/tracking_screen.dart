@@ -18,11 +18,18 @@ class MapSample extends StatefulWidget {
 
 class MapSampleState extends State<MapSample> {
   final Completer<GoogleMapController> _controller =
-      Completer<GoogleMapController>();
+  Completer<GoogleMapController>();
   bool isSave = false;
   final ServiceDetailViewModel viewModel = ServiceDetailViewModel();
   final CameraPosition _kGooglePlex = const CameraPosition(
       target: LatLng(37.42796133580664, -122.085749655962), zoom: 14.4746);
+  TextEditingController searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +60,7 @@ class MapSampleState extends State<MapSample> {
                 Text(
                   'Save as default address',
                   style:
-                      paragraph_3.copyWith(color: myLightPColor, fontSize: 14),
+                  paragraph_3.copyWith(color: myLightPColor, fontSize: 14),
                 ),
               ],
             ),
@@ -133,16 +140,58 @@ class MapSampleState extends State<MapSample> {
   }
 
   Widget buildGoogleMap() {
-    return SizedBox(
-      height: 170.h,
-      width: 150.w,
-      child: GoogleMap(
-        mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
-      ),
+    return Stack(
+      children: [
+        SizedBox(
+          height: 170.h,
+          width: 150.w,
+          child: GoogleMap(
+            mapType: MapType.normal,
+            initialCameraPosition: _kGooglePlex,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+            },
+          ),
+        ),
+        Positioned(
+          top: 10,
+          left: 10,
+          right: 10,
+          child: Container(
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: TextField(
+              controller: searchController,
+              decoration: InputDecoration(
+                hintText: 'Search',
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                border: InputBorder.none,
+                suffixIcon: searchController.text.isNotEmpty
+                    ? IconButton(
+                  icon: const Icon(Icons.clear),
+                  onPressed: () {
+                    setState(() {
+                      searchController.clear();
+                    });
+                  },
+                )
+                    : null,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
