@@ -118,13 +118,13 @@ class _ServiceDetailScreen2State extends State<ServiceDetailScreen2> {
             ),
             child: groupValue == value
                 ? Container(
-              width: 16.0,
-              height: 16.0,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: myPrimaryColor,
-              ),
-            )
+                    width: 16.0,
+                    height: 16.0,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: myPrimaryColor,
+                    ),
+                  )
                 : null,
           ),
           const SizedBox(width: 12.0),
@@ -160,7 +160,7 @@ class _ServiceDetailScreen2State extends State<ServiceDetailScreen2> {
                     activeColor: Colors.red,
                     onChanged: (value) {
                       setState(
-                            () {
+                        () {
                           viewModel.isSave = value;
                         },
                       );
@@ -177,13 +177,13 @@ class _ServiceDetailScreen2State extends State<ServiceDetailScreen2> {
               'Card holder’s name',
               style: heading_7.copyWith(color: myHeading3Color),
             ),
-            const IconTextField(svgPath: '', hintText: 'Card Name'),
+            const SimpleTextField(hintText: 'Card Name'),
             const SizedBox(height: 12.0),
             Text(
               'Card number',
               style: heading_7.copyWith(color: myHeading3Color),
             ),
-            const IconTextField(svgPath: '', hintText: 'Card Number'),
+            const SimpleTextField(hintText: 'Card Number'),
             Row(
               children: [
                 Expanded(
@@ -241,4 +241,3 @@ class _ServiceDetailScreen2State extends State<ServiceDetailScreen2> {
     );
   }
 }
-

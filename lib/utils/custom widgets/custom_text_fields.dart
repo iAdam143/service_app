@@ -15,13 +15,11 @@ class IconTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onChanged: (value) {
-        String name =value;
-
+        String name = value;
       },
       decoration: InputDecoration(
         prefixIcon: Transform.scale(
           scale: 0.5,
-
           child: SvgPicture.asset(
             svgPath,
           ),
@@ -173,7 +171,6 @@ class _DatePickerTextFieldState extends State<DatePickerTextField> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -323,6 +320,31 @@ class _CustomTextFieldState extends State<CustomTextField> {
         hintText: 'MM/YY',
         hintStyle: paragraph_2,
         enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: mygreyColor,
+            width: 1.0,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SimpleTextField extends StatelessWidget {
+  final String hintText;
+
+  const SimpleTextField({super.key, required this.hintText});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      onChanged: (value) {
+        String name = value;
+      },
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: paragraph_2,
+        enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: mygreyColor,
             width: 1.0,

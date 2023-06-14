@@ -77,7 +77,12 @@ class _ServiceDetailScreen4State extends State<ServiceDetailScreen4> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomButton1(
-            onPressed: () =>viewModel.onHomePressed(context),
+            onPressed: () =>Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MapSample(),
+              ),
+            ),
             text: 'Track',
             textColor: myPrimaryColor,
             buttonColor: myLPurplelColor,

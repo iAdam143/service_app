@@ -149,7 +149,6 @@ class CustomButton4 extends StatelessWidget {
   }
 }
 
-
 class CustomButton5 extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
@@ -195,3 +194,36 @@ class CustomButton5 extends StatelessWidget {
   }
 }
 
+class CustomButton6 extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String text;
+  final Color textColor;
+  final Color buttonColor;
+
+  const CustomButton6({
+    super.key,
+    required this.onPressed,
+    required this.text,
+    this.textColor = myPrimaryColor,
+    this.buttonColor = myLPurplelColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: buttonColor,
+        minimumSize: const Size(350, 50),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14.0),
+        ),
+        elevation: 0,
+      ),
+      child: Text(
+        text,
+        style: paragraph_2.copyWith(color: textColor),
+      ),
+    );
+  }
+}

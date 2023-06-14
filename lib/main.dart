@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:service_app/view/home_screen.dart';
 import 'package:service_app/view/splash_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

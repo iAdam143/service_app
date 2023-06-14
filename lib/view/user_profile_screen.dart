@@ -1,10 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:service_app/utils/custom%20widgets/profile_bar_delegate.dart';
-import '../utils/colors.dart';
 import '../utils/custom widgets/custom_buttons.dart';
 import '../utils/custom widgets/custom_text_fields.dart';
 import '../utils/textstyles.dart';
@@ -97,7 +95,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const PasswordTextField(),
                   SizedBox(height: 12.h),
                   if (!showText)
-                    CustomButton4(onPressed: onPressed, text: 'Confirm'),
+                    CustomButton6(onPressed: onPressed, text: 'Confirm'),
                   if (showText)
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

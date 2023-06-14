@@ -91,8 +91,7 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen> {
               const SizedBox(height: 16),
               buildHeadingWithColor('Note', myHeading3Color),
               const SizedBox(height: 16),
-              const IconTextField(
-                svgPath: '',
+              const SimpleTextField(
                 hintText:
                     'Anything for us to notice?Eg: Bathroom needs harder clean',
               ),
