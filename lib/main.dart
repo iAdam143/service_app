@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:service_app/view/Bookings/bookings_screen.dart';
+import 'package:service_app/view/home_screen.dart';
 import 'package:service_app/view/splash_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -14,7 +16,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: const Size(176.4, 383.04),minTextAdapt: true);
+    ScreenUtil.init(context,
+        designSize: const Size(176.4, 383.04), minTextAdapt: true);
     return MaterialApp(
       /*localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
@@ -25,18 +28,18 @@ class MyApp extends StatelessWidget {
         Locale('en'), // English
         Locale('es'), // Spanish
       ],*/
-      locale: const Locale('en',''),
+      locale: const Locale('en', ''),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      theme: ThemeData(
-          useMaterial3: true),
+      theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       //home: SplashScreen(),
       initialRoute: '/',
       routes: {
         //'/': (context) => HomeScreen(),
         '/': (context) => const SplashScreen(),
-        //'/category': (context) => CategoryScreen(),
+        '/home': (context) => HomeScreen(),
+        '/bookings': (context) => const BookingScreen(),
         //'/fruits': (context) => FruitsScreen(),
         //'/vegetables': (context) => VegetablesScreen(),
         //'/dairy': (context) => DairyScreen(),

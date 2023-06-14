@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../colors.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
-  const MyBottomNavigationBar({super.key});
+  const MyBottomNavigationBar({Key? key});
 
   @override
   _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
@@ -16,6 +16,12 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   void _onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
+      if (index == 0) {
+        Navigator.pushNamed(context, '/home');
+      }
+      if (index == 1) {
+        Navigator.pushNamed(context, '/bookings');
+      }
     });
   }
 
