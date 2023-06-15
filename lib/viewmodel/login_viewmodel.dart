@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:service_app/utils/custom%20widgets/custom_navigation_bar.dart';
 import 'package:service_app/view/Auth/reset_password_1.dart';
-import 'package:service_app/view/home_screen.dart';
 
 class LoginViewModel {
   void onLoginPressed(BuildContext context) {
-    // Handle next action
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => HomeScreen(),
+        builder: (context) => const MyBottomNavigationBar(),
       ),
     );
   }
 
   void onResetPasswordPressed(BuildContext context) {
-    // Handle next action
     Navigator.push(
       context,
       MaterialPageRoute(

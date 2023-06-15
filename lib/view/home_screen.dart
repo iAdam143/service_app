@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:service_app/utils/colors.dart';
 import 'package:service_app/utils/custom%20widgets/app_bar_delegate.dart';
-import 'package:service_app/utils/custom%20widgets/custom_navigation_bar.dart';
 import 'package:service_app/utils/custom%20widgets/custom_buttons.dart';
 import 'package:service_app/utils/custom%20widgets/top_pick_section.dart';
 import 'package:service_app/utils/textstyles.dart';
@@ -65,7 +64,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
+      //bottomNavigationBar: const MyBottomNavigationBar(),
       endDrawer: buildDrawer(context),
     );
   }

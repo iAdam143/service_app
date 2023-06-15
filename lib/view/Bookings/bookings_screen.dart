@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import '../../utils/colors.dart';
-import '../../utils/custom widgets/custom_navigation_bar.dart';
 import '../../utils/textstyles.dart';
 import 'active_bookings.dart';
 import 'cancelled_bookings.dart';
@@ -52,7 +50,7 @@ class _BookingScreenState extends State<BookingScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
+      //bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 
@@ -77,6 +75,7 @@ class _BookingScreenState extends State<BookingScreen> {
       ),
     );
   }
+
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
