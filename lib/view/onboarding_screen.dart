@@ -73,7 +73,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ],
           ),
         ),
-        SizedBox(height: 5.h),
+        PageIndicator(currentPage: _currentPage),
+        SizedBox(height: 10.h),
         buildButtons(context),
       ],
     );
@@ -91,7 +92,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         SizedBox(height: 5.h),
         Text(description, style: paragraph_1),
         SizedBox(height: 8.h),
-        PageIndicator(currentPage: currentPage),
       ],
     );
   }
